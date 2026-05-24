@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Monitoring IoT</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Dashboard Automatic Watering</h1>
+                <p class="scenario-text">Sistem Kontrol Penyiraman Otomatis</p>
+            </div>
+            <div id="status-connection" class="status-badge live-sim">Live Simulation</div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Card Ultrasonik -->
+            <div class="card">
+                <h3>Level Air Tandon</h3>
+                <div class="visualizer">
+                    <div id="water-tank" class="tank">
+                        <div id="water-level" class="water"></div>
+                    </div>
+                    <div class="data-display">
+                        <span id="dist-val" class="main-value">20</span>
+                        <span class="unit">cm</span>
+                    </div>
+                </div>
+                <p class="label">Jarak Permukaan ke Sensor</p>
+            </div>
+
+            <!-- Card Soil Moisture -->
+            <div class="card">
+                <h3>Kelembapan Media Tanam</h3>
+                <div class="gauge-container">
+                    <div class="circular-progress" id="soil-progress">
+                        <span id="soil-val" class="main-value">60</span>
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+                <p id="soil-status" class="status-text">IDEAL</p>
+            </div>
+
+            <!-- Card Status Pompa -->
+            <div class="card">
+                <h3>Status Pompa Air</h3>
+                <div class="pump-indicator" id="pump-icon">
+                    OFF
+                </div>
+                <p id="pump-text" class="status-text">Pompa Mati / Standby</p>
+            </div>
+        </div>
+
+        <!-- Grafik Riwayat -->
+        <div class="card chart-card">
+            <h3>Grafik Tren (Real-time Data)</h3>
+            <canvas id="historyChart"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
